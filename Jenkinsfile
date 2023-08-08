@@ -9,7 +9,7 @@ pipeline {
                     def prRef = env.CHANGE_REF
                     echo "PR Ref: ${prRef}"
 
-                    checkout([$class: 'GitSCM', branches: [[name: prRef]], userRemoteConfigs: [[url: '']]])
+                    checkout([$class: 'GitSCM', branches: [[name: prRef]], userRemoteConfigs: [[url: 'https://github.com/sumamohan143/mohan-pr.git']]])
                 }
             }
         }
