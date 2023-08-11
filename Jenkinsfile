@@ -18,6 +18,7 @@ pipeline {
             steps {
                 // Your build steps here, using the content from the PR branch
                 echo "Building using content from PR branch"
+                echo "Extra line"
             }
         }
     }
