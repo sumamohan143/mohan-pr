@@ -12,15 +12,11 @@ pipeline {
                     def prNumber = params.PR_NUMBER
                     echo "PR Number: ${prNumber}"
                     
-                    checkout([$class: 'GitSCM', 
+                    // Checkout the PR branch
+                    checkout([$class: 'GitSCM',
                         userRemoteConfigs: [[url: 'https://github.com/sumamohan143/test-pr.git']],
-                        extensions: [[$class: 'CloneOption', depth: 1]], // Limit the clone depth
-                        changelog: false, // Disable changelog generation
-                        changeset: [
-                            kind: 'pull',
-                            pullRequestNumber: prNumber,
-                            useHead: true
-                        ]
+                        extensions: [[$class: 'CloneOption', depth: 1]],
+                        branches: [[name: "refs/pull/${prNumber}/head"]]
                     ])
                 }
             }
