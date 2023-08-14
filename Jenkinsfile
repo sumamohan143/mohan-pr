@@ -13,9 +13,10 @@ pipeline {
                     echo "PR Number: ${prNumber}"
                     
                     checkout([$class: 'GitSCM',
-                        userRemoteConfigs: [[url: 'https://github.com/sumamohan143/test-pr.git']],
-                        extensions: [[$class: 'CloneOption', depth: 1]],
-                        branches: [[name: "refs/pull/${prNumber}/head"]]
+                        branches: [[name: "refs/pull/${prNumber}/merge"]],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [[$class: 'CleanBeforeCheckout']],
+                        userRemoteConfigs: [[url: 'https://github.com/sumamohan143/mohan-pr.git']]
                     ])
                 }
             }
