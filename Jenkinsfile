@@ -14,7 +14,7 @@ pipeline {
                     
                     checkout([$class: 'GitSCM',
                         branches: [[name: "refs/pull/${prNumber}/merge"]],
-                        userRemoteConfigs: [[url: 'https://github.com/sumamohan143/test-pr.git']]
+                        userRemoteConfigs: [[url: 'https://github.com/sumamohan143/mohan-pr.git']]
                     ])
                 }
             }
