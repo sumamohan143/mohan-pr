@@ -14,8 +14,6 @@ pipeline {
                     
                     checkout([$class: 'GitSCM',
                         branches: [[name: "refs/pull/${prNumber}/merge"]],
-                        doGenerateSubmoduleConfigurations: false,
-                        extensions: [[$class: 'CleanBeforeCheckout']],
                         userRemoteConfigs: [[url: 'https://github.com/sumamohan143/mohan-pr.git']]
                     ])
                 }
